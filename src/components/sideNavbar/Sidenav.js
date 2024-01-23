@@ -72,7 +72,7 @@ const SideNav = ({ navs }) => {
                   ))}
                 </div>
               )}
-              <div className='bg-gray-300 h-[.5px]'></div>
+              <div className='bg-gray-300 h-[.5px] mb-2'></div>
 
             </div>
 
