@@ -1,117 +1,38 @@
 
 'use client'
 import React, { useState, useRef,useEffect } from 'react';
-import MessageItem from "../components/msgItem/Messageitem";
-import InputMessage from "../components/inputBox/Inputbox";
+import ChatBox from '@/components/chatBox/Chatbox';
+import SideNav from '@/components/sideNavbar/Sidenav';
+import Header from '@/components/header/Header';
 
 export default function Home() {
-  const [messages, setMessages] = useState([
-        {
-      doc: false,
-      staticData: {
-        owner: 'John',
-        sender: 'John',
-        senderAvatar: 'https://i.pravatar.cc/150?img=56',
-        message: 'Hello, this is a sample message!Hello, this is a sample message',
-        isOnline: true
-      }
-    },
-    {
-      doc: true,
-      staticData: {
-        owner: 'Jane',
-        sender: 'Jane',
-        senderAvatar: 'https://i.pravatar.cc/150?img=57',
-        message: 'Hi, how are you?',
-        isOnline: false
-      }
-    },
-    {
-      doc: false,
-      staticData: {
-        owner: 'John',
-        sender: 'John',
-        senderAvatar: 'https://i.pravatar.cc/150?img=56',
-        message: 'I am doing well thank you',
-        isOnline: true
-      }
-    },
-    {
-      doc: false,
-      staticData: {
-        owner: 'Jane',
-        sender: 'Jane',
-        senderAvatar: 'https://i.pravatar.cc/150?img=57',
-        message: 'Thats great to hear',
-        isOnline: false
-      }
-    },
-    {
-      doc: true,
-      staticData: {
-        owner: 'John',
-        sender: 'John',
-        senderAvatar: 'https://i.pravatar.cc/150?img=56',
-        message: 'Here is a document for you.',
-        isOnline: true
-      }
-    },
-    {
-      doc: false,
-      staticData: {
-        owner: 'Jane',
-        sender: 'Jane',
-        senderAvatar: 'https://i.pravatar.cc/150?img=57',
-        message: 'Thank you! I will check it',
-        isOnline: false
-      }
-    },
-  ]);
+  
+  const TabComponent1 = () => <ChatBox/>;
+  const TabComponent2 = () => <ChatBox/>;
+  const TabComponent3 = () => <ChatBox/>;
 
-  const messagesContainerRef = useRef(null);
-
-  const scrollToBottom = () => {
-    messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+  const components = [TabComponent1, TabComponent2, TabComponent3];
 
 
-  const handleMessageSubmit = (newMessage) => {
-    console.log("newmessage",newMessage);
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      {
-        doc: false,
-        staticData: {
-          owner: 'John', // You may want to dynamically set the owner based on the user
-          sender: 'John',
-          senderAvatar: 'https://i.pravatar.cc/150?img=56',
-          message: newMessage,
-          isOnline: true,
-        },
-      },
-    ]);
-  };
+  const navs = [
+    {
+      heading: 'Frequently Asked',
+      components: [
+        {'Coverage and Policies':TabComponent1}, {'Claims and Detuctibles':TabComponent2}, {'Insurance Claim Process':TabComponent3}],
+    },
+    {
+      heading: 'Find an Insurance',
+      components: [{'Customer Support':TabComponent3}, {'Agents with Home':TabComponent1}],
+    },
+    // Add more navs as needed
+  ];
 
   return (
-    <>
-      <div className="p-4 bg-white w-10/12 m-auto relative">
-        <div   ref={messagesContainerRef} style={{ height: '400px', overflowY: 'auto' }}>
-          {messages.map((message, index) => (
-            <MessageItem key={index} doc={message.doc} staticData={message.staticData} />
-          ))}
-        </div>
-
-        <div
-          className="px-4 pb-2 rounded-xl"
-          style={{ position: 'sticky', bottom: 0, left: 0, right: 0 }}
-        >
-          <InputMessage onSubmit={handleMessageSubmit} />
-        </div>
-      </div>
-    </>
+    <div className=" ">
+      <Header/>
+      <SideNav navs={navs} />
+    </div>
   );
+
+ 
 }
