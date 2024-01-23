@@ -25,8 +25,9 @@ const SideNav = ({ navs }) => {
   };
 
   return (
-    <div className="flex w-full ">
-      <div className="flex flex-col w-[15%] justify-between bg-gray-200 ">
+    <div className="flex w-full h-[calc(100%-48px)] ">
+
+      <div className="flex flex-col w-[15%] justify-between bg-gray-200 overflow-auto  ">
         <div>
           <div className='text-[12px] text-gray-600 font-normal text-center p-1'>Welcome to AllstateAI</div>
           <div className='bg-gray-300 h-[.5px] mb-2'></div>
@@ -90,12 +91,14 @@ const SideNav = ({ navs }) => {
 
 
       </div>
-      <div className="w-full">
+
+      <div className="w-full  ">
         <div className="">
           {React.createElement(Object.values(navs[activeTab.navIndex].components[activeTab.tabIndex])[0])}
 
         </div>
       </div>
+
     </div>
   );
 };

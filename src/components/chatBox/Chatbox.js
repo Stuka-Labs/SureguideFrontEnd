@@ -101,7 +101,7 @@ export default function ChatBox() {
 
     return (
         <>
-            <div className='h-[35px] flex justify-between items-center px-3'>
+            <div className='h-[35px] flex justify-between items-center px-3 '>
                 <div className='text-sm'> AllstateAI</div>
                 <div className='flex   gap-2'>
 
@@ -110,13 +110,15 @@ export default function ChatBox() {
                 </div>
             </div>
             {/* <div className='bg-gray-200 h-[1px] my-2'></div> */}
-            <div className='h-[calc(100vh-(80px+48px))] border-t border-gray-400'>
+            <div className='border-t border-gray-400 h-[calc(100vh-(35px+48px))] overflow-auto'>
 
-                <div ref={messagesContainerRef} className='h-4/5 overflow-auto'>
+                <div ref={messagesContainerRef} className=''>
                     {messages.map((message, index) => (
                         <MessageItem key={index} doc={message.doc} staticData={message.staticData} />
                     ))}
                 </div>
+
+ 
 
                 <div
                     className="px-4 pb-2 rounded-xl h-1/5 w-full"

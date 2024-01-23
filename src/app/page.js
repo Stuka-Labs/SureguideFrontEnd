@@ -28,7 +28,7 @@ export default function Home() {
   ];
 
   return (
-    <div className=" ">
+    <div className="100vh">
       <Header/>
       <SideNav navs={navs} />
     </div>
