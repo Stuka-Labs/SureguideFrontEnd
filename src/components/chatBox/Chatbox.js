@@ -89,7 +89,7 @@ export default function ChatBox() {
             {
                 doc: false,
                 staticData: {
-                    owner: 'John', // You may want to dynamically set the owner based on the user
+                    owner: 'John',
                     sender: 'John',
                     senderAvatar: 'https://i.pravatar.cc/150?img=56',
                     message: newMessage,
@@ -97,6 +97,41 @@ export default function ChatBox() {
                 },
             },
         ]);
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "prompt": newMessage
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("http://127.0.0.1:8000/generate-response", requestOptions)
+            .then(response => response.text())
+            .then(result => 
+         
+            setMessages((prevMessages) => [
+                ...prevMessages,
+                {
+                    doc: false,
+                    staticData: {
+                        owner: 'Jane', 
+                        sender: 'Jane',
+                        senderAvatar: 'https://i.pravatar.cc/150?img=57',
+                        message: JSON.parse(result).response,
+                        isOnline: true,
+                    },
+                },
+            ])
+            )
+            .catch(error => console.log('error', error))
+
     };
 
     return (
@@ -118,11 +153,11 @@ export default function ChatBox() {
                     ))}
                 </div>
 
- 
+
 
                 <div
                     className="px-4 pb-2 rounded-xl fixed bottom-1 w-4/5"
-                   
+
                 >
                     <InputMessage onSubmit={handleMessageSubmit} />
                 </div>
