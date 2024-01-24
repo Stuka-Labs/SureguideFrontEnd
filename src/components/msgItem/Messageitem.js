@@ -17,10 +17,10 @@ const MessageItem = ({ doc, staticData }) => {
       </div>
       <div className='w-full'>
         <div className='flex gap-1'>
-          <p className='text-black font-semibold text-[10px]'>{staticData.sender}</p>
-          <p className='text-gray-400 font-normal text-[10px]'>3:00 PM</p>
+          <p className='text-black font-semibold text-[10px] lg:text-[12px]'>{staticData.sender}</p>
+          <p className='text-gray-400 font-normal text-[10px] lg:text-[12px]'>3:00 PM</p>
         </div>
-        <div className="chatApp__convMessageValue text-gray-400" style={{ whiteSpace: 'pre-wrap' }}>
+        <div className="chatApp__convMessageValue text-gray-400 text-[10px] lg:text-[12px]" style={{ whiteSpace: 'pre-wrap' }}>
           {staticData.message}
         </div>
         {doc && (
@@ -28,8 +28,8 @@ const MessageItem = ({ doc, staticData }) => {
             <div className='flex items-center '>
               <Image height={40} width={40} src={docImage} />
               <div>
-                <p className='text-gray-500 w-[90px] font-medium text-[9px]'>Q3 Keynote Version </p>
-                <div className='text-gray-400 font-normal text-[10px] flex gap-4 '><span>11:20</span> <span>32MB</span></div>
+                <p className='text-gray-500 w-[90px] font-medium text-[9px] '>Q3 Keynote Version </p>
+                <div className='text-gray-400 font-normal text-[10px] lg:text-[12px] flex gap-4 '><span>11:20</span> <span>32MB</span></div>
               </div>
               <Image className='ml-4' height={15} width={15} src={cloudImage} />
             </div>

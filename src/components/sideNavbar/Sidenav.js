@@ -38,7 +38,7 @@ const SideNav = ({ navs }) => {
                 className="cursor-pointer mb-2 flex items-center justify-between px-3"
                 onClick={() => handleToggleCollapse(navIndex)}
               >
-                <p className="font-semibold  text-[10px]">
+                <p className="font-semibold  text-[10px] lg:text-[12px]  ">
                   {nav.heading}
                 </p>
                 <Image
@@ -57,7 +57,7 @@ const SideNav = ({ navs }) => {
                   {nav.components.map((Component, tabIndex) => (
                     <div
                       key={tabIndex}
-                      className={`px-[2px] my-[2px] font-normal text-[10px] cursor-pointer `}
+                      className={`px-[2px] my-[2px] font-normal text-[10px] lg:text-[12px] cursor-pointer `}
                       onClick={() => handleTabClick(navIndex, tabIndex)}
                     >
                       <p
@@ -83,7 +83,7 @@ const SideNav = ({ navs }) => {
           <div className='bg-gray-300 h-[1px] my-2'></div>
           <div className='flex justify-center gap-1 my-3 '>
             <Image height={15} width={15} src={pencil}/>
-            <p className='text-[9px] text-gray-500'>New Messaage</p>
+            <p className='text-[9px] lg:text-[11px] text-gray-500'>New Messaage</p>
           </div>
 
         </div>

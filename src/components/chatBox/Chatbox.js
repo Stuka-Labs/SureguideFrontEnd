@@ -20,7 +20,7 @@ export default function ChatBox() {
             }
         },
         {
-            doc: true,
+            doc: false,
             staticData: {
                 owner: 'Jane',
                 sender: 'Jane',
@@ -50,7 +50,7 @@ export default function ChatBox() {
             }
         },
         {
-            doc: true,
+            doc: false,
             staticData: {
                 owner: 'John',
                 sender: 'John',
@@ -145,9 +145,9 @@ export default function ChatBox() {
                 </div>
             </div>
             {/* <div className='bg-gray-200 h-[1px] my-2'></div> */}
-            <div className='border-t border-gray-400 h-[calc(100vh-(35px+48px))] overflow-auto'>
+            <div className='border-t border-gray-400 h-[calc(100vh-(35px+48px))] overflow-auto flex flex-col justify-between'>
 
-                <div ref={messagesContainerRef} className='max-h-[70vh] overflow-y-scroll'>
+                <div ref={messagesContainerRef} className='2xl:max-h-[93%] xl:max-h-[85%] lg:max-h-[82%] max-h-[75%]  overflow-y-scroll'>
                     {messages.map((message, index) => (
                         <MessageItem key={index} doc={message.doc} staticData={message.staticData} />
                     ))}
@@ -155,10 +155,7 @@ export default function ChatBox() {
 
 
 
-                <div
-                    className="px-4 pb-2 rounded-xl fixed bottom-1 w-4/5"
-
-                >
+                <div className="px-4 pb-2 rounded-xl">
                     <InputMessage onSubmit={handleMessageSubmit} />
                 </div>
             </div>
