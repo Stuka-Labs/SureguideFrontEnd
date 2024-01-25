@@ -12,15 +12,15 @@ const MessageItem = ({ doc, staticData }) => {
   return (
     <div className={`chatApp__convMessageItem ${messagePosition}`}>
       <div className='h-8 w-8 relative'>
-        <img src={staticData.senderAvatar} alt={staticData.sender} className="chatApp__convMessageAvatar" />
+        <Image height={30} width={30} src={staticData.senderAvatar} alt={staticData.sender} className="chatApp__convMessageAvatar lg:h-8 lg:w-8 xl:h-10 xl:w-10 2xl:h-12 2xl:w-1h-12  " />
         {staticData.isOnline && <div className='online-badge'></div>}
       </div>
       <div className='w-full'>
         <div className='flex gap-1'>
-          <p className='text-black font-semibold text-[10px] lg:text-[12px]'>{staticData.sender}</p>
-          <p className='text-gray-400 font-normal text-[10px] lg:text-[12px]'>3:00 PM</p>
+          <p className='text-black font-semibold text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]'>{staticData.sender}</p>
+          <p className='text-gray-400 font-normal text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]'>3:00 PM</p>
         </div>
-        <div className="chatApp__convMessageValue text-gray-400 text-[10px] lg:text-[12px]" style={{ whiteSpace: 'pre-wrap' }}>
+        <div className="chatApp__convMessageValue text-gray-400 text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]" style={{ whiteSpace: 'pre-wrap' }}>
           {staticData.message}
         </div>
         {doc && (
@@ -29,7 +29,7 @@ const MessageItem = ({ doc, staticData }) => {
               <Image height={40} width={40} src={docImage} />
               <div>
                 <p className='text-gray-500 w-[90px] font-medium text-[9px] '>Q3 Keynote Version </p>
-                <div className='text-gray-400 font-normal text-[10px] lg:text-[12px] flex gap-4 '><span>11:20</span> <span>32MB</span></div>
+                <div className='text-gray-400 font-normal text-[10px] lg:text-[12px]  flex gap-4 '><span>11:20</span> <span>32MB</span></div>
               </div>
               <Image className='ml-4' height={15} width={15} src={cloudImage} />
             </div>
