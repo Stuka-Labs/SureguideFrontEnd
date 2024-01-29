@@ -8,24 +8,28 @@ import voiceCall from '../../../public/call.png'
 import bot from '../../../public/bot.png'
 import "./Chatbox.css"
 
-export default function ChatBox() {
+export default function ChatBox()
+{
     const [isFetching, setIsFetching] = useState(false);
     const [messages, setMessages] = useState([
-       
+
     ]);
 
     const messagesContainerRef = useRef(null);
 
-    const scrollToBottom = () => {
+    const scrollToBottom = () =>
+    {
         messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
     };
 
-    useEffect(() => {
+    useEffect(() =>
+    {
         scrollToBottom();
     }, [messages]);
 
 
-    const handleMessageSubmit = (newMessage) => {
+    const handleMessageSubmit = (newMessage) =>
+    {
         setMessages((prevMessages) => [
             ...prevMessages,
             {
@@ -57,7 +61,8 @@ export default function ChatBox() {
 
         fetch("http://127.0.0.1:8000/generate-response", requestOptions)
             .then(response => response.text())
-            .then(result => {
+            .then(result =>
+            {
                 setMessages((prevMessages) => [
                     ...prevMessages,
                     {
@@ -73,7 +78,8 @@ export default function ChatBox() {
                 ]);
                 setIsFetching(false); // Set isFetching to false after fetching is done
             })
-            .catch(error => {
+            .catch(error =>
+            {
                 console.log('error', error);
                 setIsFetching(false); // Set isFetching to false in case of an error
             });
@@ -82,7 +88,7 @@ export default function ChatBox() {
     return (
         <>
             <div className='h-[35px] flex justify-between items-center px-3 '>
-                <div className='text-[14px] lg:text-[16px] xl:text-[19px] 2xl:text-[22px]'> AllstateAI</div>
+                <div className='text-[14px] lg:text-[16px] xl:text-[19px] 2xl:text-[22px]'> Sure Guide</div>
                 <div className='flex   gap-2'>
                     <Image height={15} width={15} src={videoCall} />
                     <Image height={15} width={15} src={voiceCall} />
@@ -94,16 +100,16 @@ export default function ChatBox() {
                     {messages.map((message, index) => (
                         <MessageItem key={index} doc={message.doc} staticData={message.staticData} />
                     ))}
-                 
+
 
                 </div>
                 {isFetching && (
-                        <div className="loading  ">
-                            <span className="loading__dot"></span>
-                            <span className="loading__dot"></span>
-                            <span className="loading__dot"></span>
-                        </div>
-                    )}
+                    <div className="loading  ">
+                        <span className="loading__dot"></span>
+                        <span className="loading__dot"></span>
+                        <span className="loading__dot"></span>
+                    </div>
+                )}
                 <div className="px-4 pb-2 rounded-xl ">
                     <InputMessage onSubmit={handleMessageSubmit} isFetching={isFetching} />
                 </div>
