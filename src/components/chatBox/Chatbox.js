@@ -89,10 +89,10 @@ export default function ChatBox()
         <>
             <div className='h-[35px] flex justify-between items-center px-3 '>
                 <div className='text-[14px] lg:text-[16px] xl:text-[19px] 2xl:text-[22px]'> Sure Guide</div>
-                <div className='flex   gap-2'>
+                {/* <div className='flex   gap-2'>
                     <Image height={15} width={15} src={videoCall} />
                     <Image height={15} width={15} src={voiceCall} />
-                </div>
+                </div> */}
             </div>
 
             <div className='border-t border-gray-400 h-[calc(100vh-(35px+48px))] flex flex-col justify-between'>
