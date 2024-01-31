@@ -29,12 +29,12 @@ const Menu = ({ open, navs,onTabChange }) => {
 
     return (
         <nav
-            className={`flex  bg-gray-100 transform transition-transform duration-300 ease-in-out ${open ? 'translate-x-0' : '-translate-x-full'
-                } h-screen text-left p-8 absolute top-0 left-0  z-[50]`}
+            className={`flex w-[150px] bg-gray-100 transform transition-transform duration-300 ease-in-out ${open ? 'translate-x-0' : '-translate-x-full'
+                } h-screen text-left pt-12 absolute top-0 left-0  z-[50]`}
         >
 
             <div className='w-full'>
-                <div className='text-[12px] lg:text-[14px] xl:text-[17px] 2xl:text-[20px] text-gray-600 font-normal font-sofia  m-1 pl-2'>Welcome to Sure Guide</div>
+                {/* <div className='text-[12px] lg:text-[14px] xl:text-[17px] 2xl:text-[20px] text-gray-600 font-normal font-sofia  m-1 pl-2'>Welcome to Sure Guide</div> */}
                 <div className='bg-gray-300 h-[.5px] mb-2'></div>
 
                 {navs.map((nav, navIndex) => (
@@ -43,7 +43,7 @@ const Menu = ({ open, navs,onTabChange }) => {
                             className="cursor-pointer mb-2 flex items-center justify-between px-5"
                             onClick={() => handleToggleCollapse(navIndex)}
                         >
-                            <p className="font-semibold font-sofia  text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]  ">
+                            <p className="font-sofia  text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]  ">
                                 {nav.heading}
                             </p>
                             <Image
@@ -66,7 +66,7 @@ const Menu = ({ open, navs,onTabChange }) => {
                                         onClick={() => handleTabClick(navIndex, tabIndex)}
                                     >
                                         <p
-                                            className={`p-1 rounded-2xl pl-4  ${navIndex === activeTab.navIndex && tabIndex === activeTab.tabIndex
+                                            className={`p-1 pl-4  ${navIndex === activeTab.navIndex && tabIndex === activeTab.tabIndex
                                                 ? 'bg-[#0073cf] text-white'
                                                 : 'bg-gray-200 text-gray-500'
                                                 }`}
@@ -77,7 +77,7 @@ const Menu = ({ open, navs,onTabChange }) => {
                                 ))}
                             </div>
                         )}
-                        <div className='bg-gray-300 h-[.5px] mb-2'></div>
+                        {/* <div className='bg-gray-300 h-[.5px] mb-2'></div> */}
 
                     </div>
 
@@ -207,9 +207,9 @@ const SideNav = ({ navs }) => {
 
                 :
 
-                <div className="flex flex-col w-[20%] justify-between bg-gray-200 overflow-auto  ">
+                <div className="flex flex-col w-[20%] justify-between bg-gray-200 overflow-auto shadow-[2px_0px_10px_1px_#00000040] ">
                     <div className='w-full'>
-                        <div className='text-[12px] lg:text-[14px] xl:text-[17px] 2xl:text-[20px] text-gray-600 font-normal font-sofia m-1 pl-2'>Welcome to Sure Guide</div>
+                        {/* <div className='text-[12px] lg:text-[14px] xl:text-[17px] 2xl:text-[20px] text-gray-600 font-normal font-sofia m-1 pl-2'>Welcome to Sure Guide</div> */}
                         <div className='bg-gray-300 h-[.5px] mb-2'></div>
 
                         {navs.map((nav, navIndex) => (
@@ -218,7 +218,7 @@ const SideNav = ({ navs }) => {
                                     className="cursor-pointer mb-2 flex items-center justify-between px-5"
                                     onClick={() => handleToggleCollapse(navIndex)}
                                 >
-                                    <p className="font-semibold font-sofia text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]  ">
+                                    <p className="font-sofia text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]  ">
                                         {nav.heading}
                                     </p>
                                     <Image
@@ -252,7 +252,7 @@ const SideNav = ({ navs }) => {
                                         ))}
                                     </div>
                                 )}
-                                <div className='bg-gray-300 h-[.5px] mb-2'></div>
+                                {/* <div className='bg-gray-300 h-[.5px] mb-2'></div> */}
 
                             </div>
 

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import smile from '../../../public/smile.png';
 import attach from '../../../public/attachment.png';
 import mic from '../../../public/mic.png';
-import send from '../../../public/send.png';
+import send from '../../../public/send2.png';
 import videocall from '../../../public/videocall.png';
 import './Inutbox.css'
 
@@ -36,17 +36,17 @@ const InputMessage = ({ onSubmit, isFetching }) => {
     <div className="rounded-xl shadow-[1px_2px_5px_1px_#00000024]">
       <div className="relative">
         <form onSubmit={handleSubmit} className=" flex flex-grow items-center">
-          <textarea
+          <textarea rows={3}
             value={message}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             placeholder="Type your message here..."
-            className="p-2 rounded-xl w-full outline-none text-gray-400 font-normal text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px] resize-none"
+            className="p-2 px-5 rounded-xl w-full outline-none text-gray-400 font-normal text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px] resize-none"
             style={{ whiteSpace: 'pre-wrap' }}
             disabled={isFetching} // Disable textarea if isFetching is true
           />
           {isFetching ? <div className="loader"></div> : <Image alt='Send Message'
-            className={`mr-1 cursor-pointer ${isFetching ? 'opacity-50' : ''} `}
+            className={`mr-5 cursor-pointer ${isFetching ? 'opacity-50' : ''} `}
             height={25}
             width={25}
             src={send}

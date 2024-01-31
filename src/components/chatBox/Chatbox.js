@@ -7,6 +7,9 @@ import videoCall from '../../../public/videocall.png'
 import voiceCall from '../../../public/call.png'
 import bot from '../../../public/bot.png'
 import "./Chatbox.css"
+import UserImg from "../../../public/user.png"
+
+const FetchUrl="http://34.204.8.155:8000/generate-response"
 
 export default function ChatBox()
 {
@@ -35,9 +38,9 @@ export default function ChatBox()
             {
                 doc: false,
                 staticData: {
-                    owner: 'John',
-                    sender: 'John',
-                    senderAvatar: 'https://i.pravatar.cc/150?img=56',
+                    owner: 'User',
+                    sender: 'User',
+                    senderAvatar: UserImg,
                     message: newMessage,
                     isOnline: true,
                 },
@@ -59,7 +62,7 @@ export default function ChatBox()
             redirect: 'follow'
         };
 
-        fetch(" http://34.204.8.155:8000/generate-response", requestOptions)
+        fetch(FetchUrl, requestOptions)
             .then(response => response.text())
             .then(result =>
             {
@@ -68,8 +71,8 @@ export default function ChatBox()
                     {
                         doc: false,
                         staticData: {
-                            owner: 'Jane',
-                            sender: 'Jane',
+                            owner: 'Zaid',
+                            sender: 'Zaid',
                             senderAvatar: bot,
                             message: JSON.parse(result).response,
                             isOnline: true,
@@ -87,15 +90,15 @@ export default function ChatBox()
 
     return (
         <>
-            <div className='h-[35px] flex justify-between items-center px-3 '>
-                <div className='text-[14px] font-sofia lg:text-[16px] xl:text-[19px] 2xl:text-[22px]'> Sure Guide</div>
+            <div className='h-[40px] flex justify-between items-center px-3 '>
+                <div className='text-[14px] lg:text-[16px] xl:text-[19px] 2xl:text-[22px] text-[#000000d4]'> Welcome to Sure Guide</div>
                 {/* <div className='flex   gap-2'>
                     <Image height={15} width={15} src={videoCall} />
                     <Image height={15} width={15} src={voiceCall} />
                 </div> */}
             </div>
 
-            <div className='border-t border-gray-400 h-[calc(100vh-(35px+48px))] flex flex-col justify-between'>
+            <div className='border-t border-gray-400 h-[calc(100vh-(40px+48px))] flex flex-col justify-between shadow-[inset_0px_2px_5px_0px_#00000040]'>
                 <div ref={messagesContainerRef} className='h-[calc(100%-(93px))] overflow-y-auto relative' >
                     {messages.map((message, index) => (
                         <MessageItem key={index} doc={message.doc} staticData={message.staticData} />

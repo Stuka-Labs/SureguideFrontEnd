@@ -6,6 +6,10 @@ import cloudImage from "../../../public/cloud.png";
 import Image from 'next/image';
 import "./Messageitem.css"
 
+
+const Time=new Date().toLocaleTimeString()
+// console.log(Time)
+
 const MessageItem = ({ doc, staticData }) => {
   const messagePosition = (staticData.owner === staticData.sender) ? 'chatApp__convMessageItem--right' : 'chatApp__convMessageItem--left';
 
@@ -17,8 +21,8 @@ const MessageItem = ({ doc, staticData }) => {
       </div>
       <div className='w-full'>
         <div className='flex gap-1'>
-          <p className='text-black font-semibold font-sofia text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]'>{staticData.sender}</p>
-          <p className='text-gray-400 font-normal text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]'>3:00 PM</p>
+          <p className='text-black font-sofia text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]'>{staticData.sender}</p>
+          <p className='text-gray-400 font-normal text-[10px] lg:text-[12px] ml-2'>{Time}</p>
         </div>
         <div className="chatApp__convMessageValue text-gray-400 text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]" style={{ whiteSpace: 'pre-wrap' }}>
           {staticData.message}
