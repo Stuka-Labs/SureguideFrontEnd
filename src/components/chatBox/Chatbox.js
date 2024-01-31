@@ -59,7 +59,7 @@ export default function ChatBox()
             redirect: 'follow'
         };
 
-        fetch("http://127.0.0.1:8000/generate-response", requestOptions)
+        fetch(" http://34.204.8.155:8000/generate-response", requestOptions)
             .then(response => response.text())
             .then(result =>
             {

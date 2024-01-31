@@ -17,7 +17,7 @@ const MessageItem = ({ doc, staticData }) => {
       </div>
       <div className='w-full'>
         <div className='flex gap-1'>
-          <p className='text-black font-semibold text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]'>{staticData.sender}</p>
+          <p className='text-black font-semibold font-sofia text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]'>{staticData.sender}</p>
           <p className='text-gray-400 font-normal text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]'>3:00 PM</p>
         </div>
         <div className="chatApp__convMessageValue text-gray-400 text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]" style={{ whiteSpace: 'pre-wrap' }}>

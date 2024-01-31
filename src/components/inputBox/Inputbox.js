@@ -45,7 +45,7 @@ const InputMessage = ({ onSubmit, isFetching }) => {
             style={{ whiteSpace: 'pre-wrap' }}
             disabled={isFetching} // Disable textarea if isFetching is true
           />
-          {isFetching ? <div class="loader"></div> : <Image
+          {isFetching ? <div className="loader"></div> : <Image alt='Send Message'
             className={`mr-1 cursor-pointer ${isFetching ? 'opacity-50' : ''} `}
             height={25}
             width={25}
