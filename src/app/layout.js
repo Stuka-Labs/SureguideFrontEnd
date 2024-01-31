@@ -1,7 +1,15 @@
-import { Inter } from "next/font/google";
+import { Sofia_Sans } from "next/font/google";
 import "./globals.css";
+import localFont from "next/font/local"
 
-const inter = Inter({ subsets: ["latin"] });
+const sofia_bold = localFont({
+    src: '../../public/Font/SofiaProBold.ttf',
+    display: 'swap',
+    variable:'--sofia-bold'
+  })
+
+
+const inter = Sofia_Sans({ subsets: ["latin"] ,weight:'400'});
 
 export const metadata = {
     title: "Sure Guide",
@@ -11,8 +19,8 @@ export const metadata = {
 export default function RootLayout({ children })
 {
     return (
-        <html lang="en">
-            <body className={inter.className}>{children}</body>
+        <html lang="en" className={`${sofia_bold.variable}`}>
+            <body >{children}</body>
         </html>
     );
 }

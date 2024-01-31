@@ -209,7 +209,7 @@ const SideNav = ({ navs }) => {
 
                 <div className="flex flex-col w-[20%] justify-between bg-gray-200 overflow-auto  ">
                     <div className='w-full'>
-                        <div className='text-[12px] lg:text-[14px] xl:text-[17px] 2xl:text-[20px] text-gray-600 font-normal  m-1 pl-2'>Welcome to Sure Guide</div>
+                        <div className='text-[12px] lg:text-[14px] xl:text-[17px] 2xl:text-[20px] text-gray-600 font-normal font-sofia m-1 pl-2'>Welcome to Sure Guide</div>
                         <div className='bg-gray-300 h-[.5px] mb-2'></div>
 
                         {navs.map((nav, navIndex) => (
@@ -218,7 +218,7 @@ const SideNav = ({ navs }) => {
                                     className="cursor-pointer mb-2 flex items-center justify-between px-5"
                                     onClick={() => handleToggleCollapse(navIndex)}
                                 >
-                                    <p className="font-semibold  text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]  ">
+                                    <p className="font-semibold font-sofia text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px]  ">
                                         {nav.heading}
                                     </p>
                                     <Image
@@ -237,7 +237,7 @@ const SideNav = ({ navs }) => {
                                         {nav.components.map((Component, tabIndex) => (
                                             <div
                                                 key={tabIndex}
-                                                className={`px-[2px] my-[2px] font-normal text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px] cursor-pointer `}
+                                                className={`px-[2px] my-[2px] font-light font-sofia  text-[10px] lg:text-[12px] xl:text-[15px] 2xl:text-[18px] cursor-pointer `}
                                                 onClick={() => handleTabClick(navIndex, tabIndex)}
                                             >
                                                 <p

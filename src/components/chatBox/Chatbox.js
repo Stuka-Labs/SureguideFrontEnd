@@ -88,7 +88,7 @@ export default function ChatBox()
     return (
         <>
             <div className='h-[35px] flex justify-between items-center px-3 '>
-                <div className='text-[14px] lg:text-[16px] xl:text-[19px] 2xl:text-[22px]'> Sure Guide</div>
+                <div className='text-[14px] font-sofia lg:text-[16px] xl:text-[19px] 2xl:text-[22px]'> Sure Guide</div>
                 {/* <div className='flex   gap-2'>
                     <Image height={15} width={15} src={videoCall} />
                     <Image height={15} width={15} src={voiceCall} />
