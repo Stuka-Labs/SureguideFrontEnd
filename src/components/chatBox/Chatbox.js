@@ -10,13 +10,17 @@ import "./Chatbox.css"
 import UserImg from "../../../public/user.png"
 
 const FetchUrl="http://34.204.8.155:8000/generate-response"
+import  secureLocalStorage  from  "react-secure-storage";
 
-export default function ChatBox()
+export default function ChatBox({id})
 {
     const [isFetching, setIsFetching] = useState(false);
-    const [messages, setMessages] = useState([
+    const [messages, setMessages] = useState(() => {
+        const storedMessages = secureLocalStorage.getItem(`chatMessages_${id}`);
+        return storedMessages ? JSON.parse(storedMessages) : [];
+    });
+  
 
-    ]);
 
     const messagesContainerRef = useRef(null);
 
@@ -27,6 +31,7 @@ export default function ChatBox()
 
     useEffect(() =>
     {
+        secureLocalStorage.setItem(`chatMessages_${id}`, JSON.stringify(messages));
         scrollToBottom();
     }, [messages]);
 
@@ -79,12 +84,12 @@ export default function ChatBox()
                         },
                     },
                 ]);
-                setIsFetching(false); // Set isFetching to false after fetching is done
+                setIsFetching(false); 
             })
             .catch(error =>
             {
                 console.log('error', error);
-                setIsFetching(false); // Set isFetching to false in case of an error
+                setIsFetching(false); 
             });
     };
 

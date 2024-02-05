@@ -8,9 +8,9 @@ import Header from '@/components/header/Header';
 export default function Home()
 {
 
-    const TabComponent1 = () => <ChatBox />;
-    const TabComponent2 = () => <ChatBox />;
-    const TabComponent3 = () => <ChatBox />;
+    const TabComponent1 = () => <ChatBox id={1} />;
+    const TabComponent2 = () => <ChatBox id={2} />;
+    const TabComponent3 = () => <ChatBox id={3} />;
 
     const components = [TabComponent1, TabComponent2, TabComponent3];
 
